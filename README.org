@@ -2,10 +2,7 @@
 #+AUTHOR: Basti Schmale
 #+EMAIL: schmale.basti@gmail.com
 
-* Collection of How-To Guides
-
 On github you can find the description of every how to guide in the top level ~project~ folder. Furthermore, you can also look up the original source code of each project within the corresponding sub folder ~src~.
-
 
 * Channel
 
