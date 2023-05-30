@@ -1,0 +1,41 @@
+#+TITLE: How to Install Emacs 28 on Ubuntu 22 LTS
+#+AUTHOR: BastiSchmale
+#+EMAIL: schmale.basti@gmail.com
+#+OPTIONS: toc:nil
+#+PROPERTY: header-args:python :tangle ./src/code.py :exports both :results output :noweb yes :async t :session eval
+#+PROPERTY: header-args:bash :tangle ./src/code.sh :exports both :results output :noweb yes
+
+#+ATTR_ORG: :width 0.999\textwidth
+[[file:./img/thumbnailGH.png]]
+
+* Description
+
+Emacs is more than a great text editor. Unfortunately, the required Emacs 28 version is not present on Ubuntu LTS 20.04 or 22.04. This guide will show you how to add an unofficial PPA repository available for GNU Emacs’ various versions.
+
+* Guide
+
+Add =unofficial PPA repository= available for ~GNU Emacs~' various versions:
+
+#+begin_src bash
+sudo add-apt-repository ppa:kelleyk/emacs
+#+end_src
+
+Update ~Ubuntu~ APT package index
+
+#+begin_src bash
+sudo apt update
+#+end_src
+
+Install ~Emacs 28~ on the system
+
+#+begin_src bash
+sudo apt install emacs28
+#+end_src
+
+* Tags
+
+#emacs #gnu #linux #ubuntu #install #howto #system #user
+
+* Bibliography
+
+- https://www.how2shout.com/linux/how-to-install-emacs-28-on-ubuntu-20-04-lts-focal-fossa/
