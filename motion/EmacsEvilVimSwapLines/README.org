@@ -1,0 +1,46 @@
+#+TITLE: How to Swap Fast Two Lines, Words or Characters
+#+AUTHOR: BastiSchmale
+#+EMAIL: schmale.basti@gmail.com
+#+OPTIONS: toc:nil
+#+PROPERTY: header-args:python :tangle ./src/code.py :exports both :results output :noweb yes :async t :session eval
+#+PROPERTY: header-args:bash :tangle ./src/code.sh :exports both :results output :noweb yes
+
+#+ATTR_ORG: :width 0.95\textwidth
+#+ATTR_HTML: :width 90%
+[[file:./img/thumbnailGH.png]]
+
+* Description
+
+How to quickly swap / exchange two lines, words or characters of text / code in Emacs with Evil-Mode or Vim?
+
+* Guide
+
+In oder to swap the current line with the next line, you can type ~ddp~ while in command mode.
+
+#+ATTR_ORG: :width 0.70\textwidth
+#+ATTR_HTML: :width 70%
+[[file:./vid/snip01.gif]]
+
+In oder to swap the current word with the next word, you can type ~deep~ while in command mode (start with the cursor in the blank space before the first word).
+
+#+ATTR_ORG: :width 0.70\textwidth
+#+ATTR_HTML: :width 70%
+[[file:./vid/snip02.gif]]
+
+In oder to swap the current character with the next character, you can type ~xp~ while in command mode.
+
+#+ATTR_ORG: :width 0.70\textwidth
+#+ATTR_HTML: :width 70%
+[[file:./vid/snip03.gif]]
+
+Note:
+- dd: delete and save (in register) the complete line
+- p: paste from register
+
+* Tags
+
+#emacs #evil #gnu #linux #vim #motion #howto #user #code #command #key #fast
+
+* Bibliography
+
+- https://codeahoy.com/q/136/vim-faq
