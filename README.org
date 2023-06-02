@@ -8,8 +8,9 @@ On github you can find the description of every how to guide in the top level ~p
 
 Visit and follow me on the following =channels=:
 
-| platform  | account      |
-|-----------+--------------|
-| github    | BastiSchmale |
-| instagram | BastiSchmale |
-| youtube   | BastiSchmale |
+| platform  | account      | link                                                     |
+|-----------+--------------+----------------------------------------------------------|
+| github    | BastiSchmale | https://github.com/BastiSchmale                          |
+| instagram | BastiSchmale | https://www.instagram.com/bastischmale                   |
+| youtube   | BastiSchmale | https://www.youtube.com/channel/UC8GNhfPho-v6ZPw6M_j99Ew |
+| twitter   | BastiSchmale | https://twitter.com/BastiSchmale                         |
