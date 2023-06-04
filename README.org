@@ -10,7 +10,7 @@ Visit and follow me on the following =channels=:
 
 | platform  | account      | link                                                     |
 |-----------+--------------+----------------------------------------------------------|
-| github    | BastiSchmale | https://github.com/BastiSchmale                          |
+| github    | BastiSchmale | https://github.com/bastischmale                          |
 | instagram | BastiSchmale | https://www.instagram.com/bastischmale                   |
-| youtube   | BastiSchmale | https://www.youtube.com/channel/UC8GNhfPho-v6ZPw6M_j99Ew |
-| twitter   | BastiSchmale | https://twitter.com/BastiSchmale                         |
+| youtube   | BastiSchmale | https://www.youtube.com/@bastischmale                    |
+| twitter   | BastiSchmale | https://twitter.com/bastischmale                         |
