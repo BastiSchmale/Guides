@@ -1,0 +1,39 @@
+#+TITLE: Overview of Logical Operators in Different Programming Languages
+#+AUTHOR: BastiSchmale
+#+EMAIL: schmale.basti@gmail.com
+#+OPTIONS: toc:nil
+#+PROPERTY: header-args:python :tangle ./src/code.py :exports both :results output :noweb yes :async t :session eval
+#+PROPERTY: header-args:bash :tangle ./src/code.sh :exports both :results output :noweb yes
+
+#+ATTR_ORG: :width 720
+[[file:./img/thumbnailGH.png]]
+
+* Description
+
+In many programming languages we write functions that takes two logical (boolean) values, and outputs the result of AND and OR on both arguments as well as NOT on the first arguments. Some languages support additional logical operations on booleans such as XOR.
+
+* Guide
+
+In the following table an overview of ~logical operators~ for selected
+programming languages are given:
+
+| Logical Operator | equal | unequal | negation | and    | or    |
+|------------------+-------+---------+----------+--------+-------|
+| Python           | ==    | !=      | NOT      | AND    | OR    |
+| C++              | ==    | !=      | !        | &&     | \vert\vert    |
+| Java             | ==    | !=      | !        | &&     | \vert\vert    |
+| Javascript       | ==    | !=      | !        | &&     | \vert\vert    |
+| MATLAB           | ==    | ~=      | ~        | &&     | \vert\vert    |
+| Rust             | ==    | !=      | !        | &&     | \vert\vert    |
+| emacs-lisp       | =     | /=      | (not )   | (and ) | (or ) |
+
+In Addition, for languages like ~Python~, ~Rust~, ~Java~, ...
+you can use the operator =^= for =XOR=-expression.
+
+* Tags
+
+#python #cpp #javascript #java #matlab #rust #lisp #emacs #code #programming #logical #operator
+
+* Bibliography
+
+- https://rosettacode.org/wiki/Logical_operations
