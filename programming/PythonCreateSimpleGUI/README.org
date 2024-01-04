@@ -1,0 +1,53 @@
+#+TITLE: Create a Simple GUI App using Tkinter in Python
+#+AUTHOR: BastiSchmale
+#+OPTIONS: toc:nil
+#+PROPERTY: header-args:bash :tangle ./src/install.sh :exports both :results output :noweb yes
+
+#+ATTR_ORG: :width 720
+[[file:./img/thumbnailGH.png]]
+
+* Description
+
+In this guide, we creating a simple graphical user interface (GUI) application to compute two given values. Therefore, we using Tkinter. For aesthetic reasons a two-column layout and a logo was implemented. Both RETURN key and click button is used to evaluate a entered mathematically expression. This project deals as a showcase for coding basic GUI elements.
+
+* Guide
+
+** Install Tkinter
+
+First of all, you have to install ~Tkinter~ package within your virtual environment using the following command:
+
+#+begin_src bash :noeval
+pip3 install tk
+#+end_src
+
+In order to add image to your app, we installling also ~Pillow~ package:
+
+#+begin_src bash :noeval
+pip3 install pillow
+#+end_src
+
+** Code
+
+The descriptive programm code to create a simple GUI app can be found under sub directory ~src~.
+
+** Preview Result
+
+#+ATTR_ORG: :width 720
+#+ATTR_HTML: :width 70%
+[[file:./vid/previewGH.gif]]
+
+* Follow & Share: Get more Content on the Following Platforms
+
+- GitHub: https://github.com/bastischmale
+- Instagram: https://www.instagram.com/bastischmale
+- Youtube: https://www.youtube.com/@bastischmale
+- X Twitter: https://twitter.com/bastischmale
+- TikTok: https://www.tiktok.com/@bastischmale
+
+* Tags
+
+#python #install #howto #guide #gui #tkinter #calculator #math #expression #code #programm #app #user
+
+* Bibliography
+
+- https://docs.python.org/3/library/tkinter.html

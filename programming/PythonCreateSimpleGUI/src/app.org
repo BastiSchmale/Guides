@@ -1,0 +1,150 @@
+#+AUTHOR: Basti
+#+TITLE: Demo
+#+DATE: YYYY-MM-DD
+#+PROPERTY: header-args:python :tangle app_T.py :exports both :results output :noweb yes :async t
+
+#+BEGIN_SRC python
+import os
+from math import *
+import tkinter as tk
+from PIL import Image, ImageTk
+#+END_SRC
+
+* defining functions
+
+IMPORTANT event have to initialized with None in order
+to be compatible with both <Return> and button execution, respectively.
+
+#+BEGIN_SRC python
+def compute(event=None):
+    userIn = entry.get()
+    if len(userIn) > 0:
+        res.configure(text="{}".format(str(eval(userIn))))
+#+END_SRC
+
+* set parameter and path to logo
+
+define window size
+
+#+BEGIN_SRC python
+H, W = 480, 480
+#+END_SRC
+
+define background color
+
+#+BEGIN_SRC python
+colBG = "#FFFFFF"
+#+END_SRC
+
+define title as app description
+
+#+BEGIN_SRC python
+strTitle = (
+    "This app interprets mathematical expressions \n"
+    + "(using Package math) and calculates \n"
+    + "the numerical result."
+)
+#+END_SRC
+
+little hack/trick to change dir
+
+#+BEGIN_SRC python
+pathDirImg = os.getcwd().replace("src", "img")
+pathImg = os.path.join(pathDirImg, "logoBS.png")
+#+END_SRC
+
+load logo image
+
+#+BEGIN_SRC python
+logo = Image.open(pathImg)
+logo = logo.resize((100, 100))
+#+END_SRC
+
+* create GUI app
+
+define window
+
+#+BEGIN_SRC python
+objWin = tk.Tk()
+objWin.geometry("{}x{}+{}+{}".format(W, H, 0, 0))
+#+END_SRC
+
+define frame layout and including BG
+
+#+BEGIN_SRC python
+objFrame = tk.Frame(
+    objWin,
+    width=W,
+    height=H,
+    bg=colBG,
+)
+objFrame.grid(columnspan=3, rowspan=6, row=0)
+#+END_SRC
+
+set logo
+
+#+BEGIN_SRC python
+logo = ImageTk.PhotoImage(logo)
+lblLogo = tk.Label(image=logo, borderwidth=0)
+lblLogo.grid(column=1, row=0)
+#+END_SRC
+
+define and place description
+
+#+BEGIN_SRC python
+lblDesc = tk.Label(
+    objWin,
+    text=strTitle,
+    font=("Ubuntu", 12),
+    justify="center",
+    bg=colBG,
+)
+lblDesc.grid(column=0, row=1, columnspan=3)
+#+END_SRC
+
+define and place label for input
+
+#+BEGIN_SRC python
+lblInput = tk.Label(
+    objWin,
+    text="Enter Your Expression: ",
+    bg=colBG,
+    fg="#3071db",
+)
+lblInput.grid(column=0, row=2, columnspan=3)
+#+END_SRC
+
+define and place input field
+
+#+BEGIN_SRC python
+entry = tk.Entry(objWin, width=48)
+entry.bind("<Return>", compute)
+entry.grid(column=0, row=3, columnspan=3)
+#+END_SRC
+
+define and place result field
+
+#+BEGIN_SRC python
+res = tk.Label(objWin, bg=colBG)
+res.grid(column=0, row=4, columnspan=3)
+#+END_SRC
+
+define and place execution button
+
+#+BEGIN_SRC python
+btmE = tk.Button(objWin, text="Eval", command=compute)
+btmE.grid(column=0, row=5)
+#+END_SRC
+
+define and place quit button
+
+#+BEGIN_SRC python
+btmQ = tk.Button(objWin, text="Quit", command=objWin.destroy)
+btmQ.grid(column=2, row=5)
+#+END_SRC
+
+run main loop
+
+#+BEGIN_SRC python
+objWin.mainloop()
+#+END_SRC
