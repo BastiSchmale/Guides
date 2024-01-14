@@ -1,0 +1,63 @@
+#+TITLE: Enabling the F-Keys for KeyChron Keyboard on Linux
+#+AUTHOR: BastiSchmale
+#+OPTIONS: toc:nil
+
+#+ATTR_ORG: :width 720
+[[file:./img/thumbnailGH.png]]
+
+* Description
+
+Both in Bluetooth and Wired modes, Keychron Keyboards on Linux use the hid_apple driver in Windows/Android mode. By default, this driver uses the F-keys as multimedia shortcuts. Therefore, to get the expected F1 through F12 keys, you have to press Fn + the key of choice. In order to make usual F-Key work, you need to modify the fnmode parameter for the hid_apple kernel module. In this guide you will learn how to fix it.
+
+* Guide
+
+The Keychron keyboard has two modes: Windows/Android and macOS. Unfortunately, both modes don't work properly out of the box on Linux like Ubuntu, which I have been tested.
+
+In order to change the keychron driver parameter for function keys, create a config file ~hid_apple~:
+
+#+begin_src sh :noeval
+sudo vim /etc/modprobe.d/hid_apple.conf
+#+end_src
+
+Then, you have to set the parameter ~fnmode~ to =2= by inserting the following line:
+
+#+begin_src example
+options hid_apple fnmode=2
+#+end_src
+
+The parameter ~fnmode~ can be choosen from 0 to 2:
+
+| Parameter | Function   | Description                                              |
+|-----------+------------+----------------------------------------------------------|
+|         0 | disabled   | Disable the 'fn' key.                                    |
+|           |            | Pressing 'fn'+'F8' will behave like you only press 'F8'  |
+|         1 | fkeyslast  | Function keys are used as last key.                      |
+|           |            | Pressing 'F8' key will act as a special key.             |
+|           |            | Pressing 'fn'+'F8' will behave like a F8.                |
+|         2 | fkeysfirst | Function keys are used as first key.                     |
+|           |            | Pressing 'F8' key will behave like a F8.                 |
+|           |            | Pressing 'fn'+'F8' will act as special key (play/pause). |
+
+If ~hid_apple~ is already included you can rebuild your initramfs using the following command:
+
+#+begin_src sh :noeval
+sudo update-initramfs -u -k all
+#+end_src
+
+After that (even after a reboot), you should be able to use the F-Keys of your Keychron Keyboard as expected.
+
+* Follow & Share: Get more Content on the Following Platforms
+
+- GitHub: https://github.com/bastischmale
+- Instagram: https://www.instagram.com/bastischmale
+- Youtube: https://www.youtube.com/@bastischmale
+- X Twitter: https://twitter.com/bastischmale
+- TikTok: https://www.tiktok.com/@bastischmale
+
+* Tags
+
+#gnu #linux #ubuntu #config #howto #system #user #keychron #keyboard #fkey #paramter #setting #fnmode
+
+* Bibliography
+
+- https://gist.github.com/andrebrait/961cefe730f4a2c41f57911e6195e444?ref=xfuture-blog.com
