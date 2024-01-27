@@ -1,0 +1,155 @@
+#+TITLE: Configuring Emacs: Built-in Basic Settings (01)
+#+AUTHOR: BastiSchmale
+#+OPTIONS: toc:nil
+#+PROPERTY: header-args:python :tangle ./src/code.py :exports both :results output :noweb yes :async t :session eval
+#+PROPERTY: header-args:bash :tangle ./src/code.sh :exports both :results output :noweb yes
+#+PROPERTY: header-args:emacs-lisp :tangle ./src/init.el :exports both :results output :noweb yes :async t :session eval
+
+#+ATTR_ORG: :width 720
+[[file:./img/thumbnailGH.png]]
+
+* Description
+
+In this guide you will learn about a useful configurations of a subset of built-in functionality of GNU Emacs. Therefore, no extra packages have to be installed. Absolute Emacs beginners can start with this basic config. I focused on both appearance and basic functionality in order to immediately personalize your Emacs experience.
+
+* Guide
+
+Disabling GUI mode components
+
+#+begin_src emacs-lisp
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(tooltip-mode -1)
+(menu-bar-mode -1)
+#+end_src
+
+Some setting for a better user experience of GNU Emacs.
+
+#+begin_src emacs-lisp
+(setq-default
+ confirm-kill-emacs 'y-or-n-p                        ; ask before quit
+ fill-column 96                                      ; Set width for automatic line breaks
+ ring-bell-function 'ignore                          ; Warning Sound ausschalten
+ help-window-select t                                ; Focus new help windows when opened
+ inhibit-startup-screen t                            ; Disable start-up screen
+ initial-scratch-message ""                          ; Empty the initial *scratch* buffer
+ load-prefer-newer t                                 ; Prefers the newest version of a file
+ frame-title-format '(buffer-file-name "%f" ("%b"))  ; Full path in frame title
+ select-enable-primary nil                           ; Dont automatically copy selected text
+ select-enable-clipboard t                           ; Merge system's and Emacs' clipboard
+ ac-auto-start t                                     ; auto-complete
+ view-read-only t                                    ; Always open read-only buffers in view-mode
+ )
+(delete-selection-mode t)                            ; overwrite selected text
+#+end_src
+
+Maximizing emacs frame (fullscreen)
+
+#+begin_src emacs-lisp
+(set-frame-parameter (selected-frame) 'fullscreen 'maximized)
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+#+end_src
+
+Loading/changing emacs theme
+
+#+begin_src emacs-lisp
+(load-theme 'deeper-blue)
+#+end_src
+
+IMPORTANT: change futher appearance settings after loading theme.
+
+Suppressing UI popup, e.g. password, which appears now as prompt (like M-x)
+
+#+begin_src emacs-lisp
+(setq use-file-dialog nil)
+(setq use-dialog-box nil)
+#+end_src
+
+Setting font sytle and size
+
+#+begin_src emacs-lisp
+(set-face-attribute 'default nil :font "Ubuntu Mono" :height 112)
+;; (set-face-attribute 'default nil :height 112)
+#+end_src
+
+Setting cursor type and color
+
+#+begin_src emacs-lisp
+(setq-default cursor-type 'bar)
+(set-cursor-color "#ffffff")
+#+end_src
+
+Setting fringe region
+
+#+begin_src emacs-lisp
+(set-fringe-mode 8)
+#+end_src
+
+Line Wrapping
+
+#+begin_src emacs-lisp
+(set-default 'truncate-lines t)                      ; line break/wrap
+(global-visual-line-mode 1)                          ; Wrap Lines at Word Boundary
+(visual-line-mode 1)                                 ; enable Wrapping Lines
+#+end_src
+
+Line Numbers and Wrapping. Show the column number
+
+#+begin_src emacs-lisp
+(column-number-mode)
+(global-display-line-numbers-mode t)
+#+end_src
+
+Suppressing backup and autosave files
+
+#+begin_src elisp
+(setq make-backup-files nil) ;; stop creating those backup~ files
+(setq auto-save-default nil) ;; stop creating those #autosave# files
+#+end_src
+
+Making ESC quit prompts
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+#+end_src
+
+ Hightlighting current line
+
+#+begin_src emacs-lisp
+(global-hl-line-mode 1)
+#+end_src
+
+Enabling time in the mode-line
+
+#+begin_src emacs-lisp
+(setq display-time-format "%H:%M (%Y-%m-%d)")
+(display-time-mode 1)
+#+end_src
+
+Paring brackets, quotes, etc. Typing the first character in a set of 2, completes the second one after your cursor.
+
+#+begin_src emacs-lisp
+(setq electric-pair-pairs '((?\{ . ?\}) (?\( . ?\)) (?\[ . ?\]) (?\" . ?\")))
+(electric-pair-mode t)
+#+end_src
+
+Replacing yes/no prompts with y/n
+
+#+begin_src emacs-lisp
+(fset 'yes-or-no-p 'y-or-n-p)
+#+end_src
+
+
+* Follow & Share: Get more Content on the Following Platforms
+
+- GitHub: https://github.com/bastischmale
+- Instagram: https://www.instagram.com/bastischmale
+- Youtube: https://www.youtube.com/@bastischmale
+- X Twitter: https://twitter.com/bastischmale
+- TikTok: https://www.tiktok.com/@bastischmale
+
+* Tags
+
+#emacs #gnu #linux #howto #config #settings #get-started #basic #beginner #builtin
+
+* Bibliography
