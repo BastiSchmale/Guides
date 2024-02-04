@@ -1,0 +1,72 @@
+#+TITLE: Wrapping Cell Content in An Org-Mode Table in Emacs
+#+AUTHOR: BastiSchmale
+#+OPTIONS: toc:nil
+#+PROPERTY: header-args:python :tangle no :exports both :results output :noweb yes :async t :session eval
+#+PROPERTY: header-args:bash :tangle no :exports both :results output :noweb yes
+
+#+ATTR_ORG: :width 720
+[[file:./img/thumbnailGH.png]]
+
+* Description
+
+An org mode table is a transcluded table and it has extra semantics on how the body text of a table cell is sourced. A transcluded table looks like just any other Org table, and unlike with Org tables, the cell contents are as easy to edit as regular text. While composing your table, you no longer have to narrow your columns or grapple with your table overflowing outside of your display area or wrapping over like a serpentine monster. In order to avoid messy tables, we can swtich the format from org-table to table.el, which provides cell wrapping.
+
+
+* Guide
+
+First, let's take a look at a regular ~org mode~ table, which looks familiar and expected:
+
+| Header A           | Header B                       | Header C                       |
+|--------------------+--------------------------------+--------------------------------|
+| short text content | short text content             | unordered list of content here |
+|--------------------+--------------------------------+--------------------------------|
+| short text content | long text content in cell here | short text content             |
+
+But some times, when we increasing work on the table, we reach a point where the table become messy. Let's simulate this by extending the cell content by adding some dummy words and bullets:
+
+| Header A      | Header B                                               | Header C                                                                     |
+|---------------+--------------------------------------------------------+------------------------------------------------------------------------------|
+| short text content | short text content                                     | unordered bullet point 1, unordered bullet point 2, unordered bullet point 3 |
+|---------------+--------------------------------------------------------+------------------------------------------------------------------------------|
+| short text content | long long long long long long content in a single cell | short text content                                                           |
+
+~org-mode~ has two table formats, the default ~org-table~ and the other is =table.el=. Cell wrapping is available for tables in =table.el= format. In order to wrap the cell content, we have to switch to =table.el=, make modifications by hand and convert the table back to ~org-table~ by doing the following steps:
+
+1. Place your mouse cursor inside table then type ~C-c ~~ and answer y.
+
+2. Place your mouse cursor inside updated table then type ~C-c '~ and a new buffer will appear.
+
+3. Restructure by inserting line breaks in the individual cells when necessary.
+
+4. Type ~C-c '~ to finish editing table.
+
+5. Type ~C-c ~~ to convert the table back to the org-mode format.
+
+| Header A           | Header B                      | Header C                   |
+|--------------------+-------------------------------+----------------------------|
+| short text content | short text content            | - unordered bullet point 1 |
+|                    |                               | - unordered bullet point 2 |
+|                    |                               | - unordered bullet point 3 |
+|--------------------+-------------------------------+----------------------------|
+| short text content | long long long long long long | short text content         |
+|                    | content in a single cell      |                            |
+
+
+* Follow & Share: Get more Content on the Following Platforms
+
+- GitHub: https://github.com/bastischmale
+- Instagram: https://www.instagram.com/bastischmale
+- Youtube: https://www.youtube.com/@bastischmale
+- X Twitter: https://twitter.com/bastischmale
+- TikTok: https://www.tiktok.com/@bastischmale
+
+
+* Tags
+
+#emacs #gnu #linux #org #table #install #howto #config #wrapping #cell
+
+
+* Bibliography
+
+- https://emacs.stackexchange.com/questions/38135/wrap-cell-content-in-an-org-mode-table
+- https://emacsnotes.wordpress.com/2022/06/20/how-to-create-a-table-with-multi-paragraph-content-spanned-cells-using-emacs-org-mode/
